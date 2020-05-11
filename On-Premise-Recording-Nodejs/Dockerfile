@@ -14,4 +14,9 @@ RUN node-gyp configure
 RUN node-gyp build
 RUN cp build/Release/agorasdk.node ../.
 
+WORKDIR /usr/src/app/server
+RUN npm install
+
+EXPOSE 3000
+CMD ["node", "app.js"]
 
